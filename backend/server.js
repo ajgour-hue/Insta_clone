@@ -4,5 +4,6 @@ const connecToDB = require("./src/config/database")
 connecToDB()
 app.listen(3000,()=>{
     console.log("Server is running on this port");
+    
     })
 
