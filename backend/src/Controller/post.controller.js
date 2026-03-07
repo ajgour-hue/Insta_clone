@@ -16,23 +16,28 @@ async function createPostController(req, res) {
 
 
     // user konsa requwst kar rha h uski id k liye hain
-    const token = req.cookies.token
-    if (!token) {
-        return res.status(401).json({
-            message: "Token not provided, Unauthorised access"
-        })
-    }
+
+    ///////////
+    ///  YAHA PAR HAME ISKO COMMENT KIYA H KYONKI YEH CODE REPAEA HO RHA THAA TO ISKO HAMNE MIDDLEEWARE KI TARAH USE KIYA HAI iDENTIFYuSER KE NAAM SE POST.ROUTES.JS KI FILE MAIN 
+    ////////
+
+    // const token = req.cookies.token
+    // if (!token) {
+    //     return res.status(401).json({
+    //         message: "Token not provided, Unauthorised access"
+    //     })
+    // }
 
 
-    let decoded = null
-    try{
-          decoded = jwt.verify(token,process.env.JWT_SECRET)
-    }
-    catch(err){
-        res.status(401).json({
-            message : "user is anauthorised ."
-        })
-    }
+    // let decoded = null
+    // try{
+    //       decoded = jwt.verify(token,process.env.JWT_SECRET)
+    // }
+    // catch(err){
+    //     res.status(401).json({
+    //         message : "user is anauthorised ."
+    //     })
+    // }
 
 //    console.log(decoded);
    
@@ -44,18 +49,6 @@ async function createPostController(req, res) {
         fileName: "Test",
           folder: "/Insta-Posts"
     })
-
-    // const file = await imagekit.files.upload({
-    // file: await toFile(Buffer.from(req.file.buffer), 'file'),
-    // fileName: "Test",
-    // folder: "/Insta-Posts"
-// })  
-
-    // res.json({
-    //     message: "uploaded",
-    //     url: file.url,
-    //     file
-    // })
 
 
  const post = await postModel.create({
@@ -75,22 +68,28 @@ res.status(201).json({
 // get posts with specipic users request 
 async function getPostController(req, res){
  
-    const token = req.cookies.token
-   
-    if(!token){
-        return res.status(401).json({
-            message : "Unauthorised Access"
-        })
-    }
 
-    let decoded;
-   try 
-    { decoded =  jwt.verify(token , process.env.JWT_SECRET)
-    }catch(err){
-        return res.status(401).json({
-            message: "Invlid token"
-        })
-    }
+     ///////////
+    ///  YAHA PAR HAME ISKO COMMENT KIYA H KYONKI YEH CODE REPAEA HO RHA THAA TO ISKO HAMNE MIDDLEEWARE KI TARAH USE KIYA HAI iDENTIFYuSER KE NAAM SE POST.ROUTES.JS KI FILE MAIN 
+    ////////
+
+
+//     const token = req.cookies.token
+   
+//     if(!token){
+//         return res.status(401).json({
+//             message : "Unauthorised Access"
+//         })
+//     }
+
+//     let decoded;
+//    try 
+//     { decoded =  jwt.verify(token , process.env.JWT_SECRET)
+//     }catch(err){
+//         return res.status(401).json({
+//             message: "Invlid token"
+//         })
+//     }
 
      const userId = decoded.id
 
@@ -106,22 +105,27 @@ async function getPostController(req, res){
 
 async function getPostDetailsController(req ,res){
   
-    const token = req.cookies.token
-   
-    if(!token){
-        return res.status(401).json({
-            message : "Unauthorised Access"
-        })
-    }
 
-    let decoded;
-   try 
-    { decoded =  jwt.verify(token , process.env.JWT_SECRET)
-    }catch(err){
-        return res.status(401).json({
-            message: "Invlid token"
-        })
-    }
+     ///////////
+    ///  YAHA PAR HAME ISKO COMMENT KIYA H KYONKI YEH CODE REPAEA HO RHA THAA TO ISKO HAMNE MIDDLEEWARE KI TARAH USE KIYA HAI iDENTIFYuSER KE NAAM SE POST.ROUTES.JS KI FILE MAIN 
+    ////////
+
+//     const token = req.cookies.token
+   
+//     if(!token){
+//         return res.status(401).json({
+//             message : "Unauthorised Access"
+//         })
+//     }
+
+//     let decoded;
+//    try 
+//     { decoded =  jwt.verify(token , process.env.JWT_SECRET)
+//     }catch(err){
+//         return res.status(401).json({
+//             message: "Invlid token"
+//         })
+//     }
 
      const userId = decoded.id
      const postId = req.params.postId
