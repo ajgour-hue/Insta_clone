@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router'
 import axios from 'axios'
+import { useAuth } from '../hooks/useAuth'
+
 
 const Register = () => {
 
@@ -8,19 +10,32 @@ const Register = () => {
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
 
-    async function handleSubmit(e){
+
+    // ui layer -- hooks layer
+ const {handleRegister} = useAuth()
+
+
+        // ======// it was added to auth.api.js because of api layerr this layer is reponsible for communicating with the backend
+
+     function handleSubmit(e){
         e.preventDefault()
 
-        axios.post("http://localhost:3000/api/auth/register",{
-            username,
-            email,
-            password,
-        },{
-            withCredentials:true
+         handleRegister(username,email,password) 
+        .then(res=>{
+            console.log(res);
+            
         })
-        .then(res => {
-            console.log(res.data)
-        })
+
+        // axios.post("http://localhost:3000/api/auth/register",{
+        //     username,
+        //     email,
+        //     password,
+        // },{
+        //     withCredentials:true
+        // })
+        // .then(res => {
+        //     console.log(res.data)
+        // })
     }
 
     return (
