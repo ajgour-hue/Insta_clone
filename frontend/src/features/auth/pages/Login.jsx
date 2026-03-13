@@ -2,23 +2,41 @@ import React, { useState } from 'react'
 import '../style/form.scss'
 import { Link } from 'react-router'
 import axios from 'axios'
+import { useAuth } from '../hooks/useAuth'
 
 const Login = () => {
 
     const [ username, setUsername ] = useState("")
     const [ password, setPassword ] = useState("")
 
+    // ui layer -- hooks layer
+ const {handleLogin,Loading} = useAuth()
 
+
+ if(Loading){
+    return(
+        <h1>LOADING..</h1>
+    )
+ }
+   
     function handleSubmit(e) {
         e.preventDefault()
 
-        axios.post("http://localhost:3000/api/auth/login", {
-            username,
-            password,
-        }, { withCredentials: true })
-            .then(res => {
-                console.log(res.data)
-            })
+        handleLogin(username,password) 
+        .then(res=>{
+            console.log(res);
+        })
+
+ // ======// it was added to auth.api.js because of api layerr this layer is reponsible for communicating with the backend
+    
+
+        // axios.post("http://localhost:3000/api/auth/login", {
+        //     username,
+        //     password,
+        // }, { withCredentials: true })
+        //     .then(res => {
+        //         console.log(res.data)
+        //     })
     }
 
 
