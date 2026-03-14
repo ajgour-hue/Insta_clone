@@ -33,5 +33,11 @@ postRouter.get("/details/:postId",IdentifyUser,postController.getPostDetailsCont
 // @descrition like a post eith the is provided  
 postRouter.post("/like/:postId",IdentifyUser,postController.likePostController)
 
+
+// @routes POST /api/posts/feed
+//  @description get all the post created in the DB
+// @acess Private
+postRouter.get("/feed",IdentifyUser , postController.getFeedController)
+
 module.exports = postRouter
     

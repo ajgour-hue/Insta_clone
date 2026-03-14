@@ -1,7 +1,9 @@
 
+
 const postRouter = require("../routes/post.routes")
 const jwt = require("jsonwebtoken")
 const likeModel = require("../model/like.model")
+
 // imagekit 
 
 const ImageKit = require("@imagekit/nodejs")
@@ -181,11 +183,19 @@ async function likePostController(req, res) {
 
 }
 
+async function getFeedController(req,res){
+    // .populate("user") isse use ki id oheele aa rhi thi lekin iski wajah  s pura user ka data aa jayga
+  const posts = await postModel.find().populate("user").select("-user.password")
 
+  res.status(200).json({
+    message:"post feetched succesfully ",posts
+  })
+}
 
 module.exports = {
     createPostController,
     getPostController,
     getPostDetailsController,
-    likePostController
+    likePostController,
+    getFeedController
 }

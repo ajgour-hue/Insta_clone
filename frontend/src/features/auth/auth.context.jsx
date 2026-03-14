@@ -1,6 +1,6 @@
 
 import { useState, useEffect,createContext } from "react";
-import { login, register, getMe } from "../services/auth.api"
+import { login, register, getMe } from "./services/auth.api"
 
 // State Layer
 
