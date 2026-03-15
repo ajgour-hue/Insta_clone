@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect } from 'react'
 import '../style/form.scss'
-import { Link ,useNavigate } from 'react-router'
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { useAuth } from '../hooks/useAuth'
 
@@ -11,8 +11,13 @@ const Login = () => {
     const navigate = useNavigate()
 
     // ui layer -- hooks layer
- const {handleLogin,Loading} = useAuth()
- navigate("/")
+ const {handleLogin,Loading ,user} = useAuth()
+ 
+ useEffect(() => {
+        if (user) {
+            navigate("/")
+        }
+    }, [user])
 
  if(Loading){
     return(
