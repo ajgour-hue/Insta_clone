@@ -1,0 +1,41 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.6rem 1.5rem;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+
+.newPost {
+  background: linear-gradient(135deg, #ff3040, #ff6a75);
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  transition: all 0.25s ease;
+}
+
+.newPost:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 48, 64, 0.35);
+}
+
+.newPost:active {
+  transform: scale(0.95);
+}
+
+.insta {
+    color: black;
+    font-size: larger;
+}

@@ -33,6 +33,8 @@ postRouter.get("/details/:postId",IdentifyUser,postController.getPostDetailsCont
 // @descrition like a post eith the is provided  
 postRouter.post("/like/:postId",IdentifyUser,postController.likePostController)
 
+postRouter.post("/unlike/:postId",IdentifyUser,postController.unLikePostController)
+
 
 // @routes POST /api/posts/feed
 //  @description get all the post created in the DB
