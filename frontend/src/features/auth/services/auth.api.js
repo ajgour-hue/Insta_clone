@@ -8,7 +8,8 @@ import axios from 'axios'
 // reapeted things are here is a ====== 1)await axios.post("http://localhost:3000/api/auth
 //                               =====  2)     withCredentials: true
 const api = axios.create({
-    baseURL: "http://localhost:3000/api/auth",
+    // baseURL: "http://localhost:3000/api/auth",
+      baseURL: `${import.meta.env.VITE_API_URL}/api/auth`,
     withCredentials: true
 })
 
