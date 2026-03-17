@@ -39,7 +39,7 @@ postRouter.post("/unlike/:postId",IdentifyUser,postController.unLikePostControll
 // @routes POST /api/posts/feed
 //  @description get all the post created in the DB
 // @acess Private
-postRouter.get("/feed",IdentifyUser , postController.getFeedController)
+postRouter.get("/feed" , postController.getFeedController)
 
 module.exports = postRouter
     

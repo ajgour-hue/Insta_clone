@@ -1,9 +1,10 @@
 import axios from 'axios'
-
+const API = import.meta.env.VITE_API_URL;
+console.log("API URL:", API)
 const api = axios.create({
-    baseURL: "http://localhost:3000",
-    withCredentials:true
-})
+  baseURL: API,
+  withCredentials: true
+});
 
 export async function getFeed(){
     const response = await api.get('/api/posts/feed')
