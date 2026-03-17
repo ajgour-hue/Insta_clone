@@ -1,6 +1,6 @@
 // it is responsible for inlt auth related functionality into backend 
 // like login register and getme ......
-
+const API = import.meta.env.VITE_API_URL;
 import axios from 'axios'
 
 
